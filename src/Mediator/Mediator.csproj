@@ -8,6 +8,8 @@
     <RepositoryUrl>https://github.com/huanent/Mediator</RepositoryUrl>
     <RepositoryType>github</RepositoryType>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <AssemblyName>Huanent.Mediator</AssemblyName>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>

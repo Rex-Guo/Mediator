@@ -9,6 +9,8 @@
     <Company>Huanent</Company>
     <Product>Mediator.DependencyInjection</Product>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <AssemblyName>Huanent.Mediator.DependencyInjection</AssemblyName>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>

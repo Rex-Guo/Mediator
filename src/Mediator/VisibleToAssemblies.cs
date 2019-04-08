@@ -1,3 +1,3 @@
 ﻿using System.Runtime.CompilerServices;
 
-[assembly: InternalsVisibleTo("Mediator.DependencyInjection")]
+[assembly: InternalsVisibleTo("Huanent.Mediator.DependencyInjection")]
