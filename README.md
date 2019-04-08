@@ -9,14 +9,12 @@ Huanent.Mediator与[jbogard/MediatR](https://github.com/jbogard/MediatR)同为�
 # 快速开始
 _新建测试类 TestCommand.cs TestHandler.cs_
 
-TestCommand.cs
 ```
 public class TestCommand : ICommand<string>
 {
     public int Id { get; set; }
 }
 ```
-TestHandler.cs
 ```
 public class TestHandler : IHandler<TestCommand, string>
 {
@@ -72,4 +70,4 @@ public class ValuesController : ControllerBase
 
 ```
 
-#完整API详见[WIKI]()
+# 完整API详见[WIKI]()
