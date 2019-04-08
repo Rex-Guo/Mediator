@@ -2,6 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageProjectUrl>https://github.com/huanent/Mediator</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/huanent/Mediator</RepositoryUrl>
+    <RepositoryType>github</RepositoryType>
+    <Authors>Huanent</Authors>
+    <Company>Huanent</Company>
+    <Product>Mediator.DependencyInjection</Product>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
