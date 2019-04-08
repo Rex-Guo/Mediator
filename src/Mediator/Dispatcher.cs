@@ -9,9 +9,9 @@ namespace Mediator
     internal class Dispatcher : IDispatcher
     {
         private readonly IServiceProvider _serviceProvider;
-        private readonly IReadOnlyDictionary<Type, Type> _dic;
+        private readonly IReadOnlyDictionary<Type, HandlerTypeInfo> _dic;
 
-        public Dispatcher(IServiceProvider serviceProvider, Dictionary<Type, Type> dic)
+        public Dispatcher(IServiceProvider serviceProvider, Dictionary<Type, HandlerTypeInfo> dic)
         {
             _serviceProvider = serviceProvider;
             _dic = dic;
@@ -21,11 +21,11 @@ namespace Mediator
         {
             bool success = _dic.TryGetValue(command.GetType(), out var handlerType);
             if (!success) throw new NotHandlerException();
-            object handler = _serviceProvider.GetService(handlerType);
+            object handler = _serviceProvider.GetService(handlerType.Type);
 
             var call = Expression.Call(
                 Expression.Constant(handler),
-                handlerType.GetMethod("HandleAsync"),
+                handlerType.Method,
                 Expression.Constant(command),
                 Expression.Constant(token));
 

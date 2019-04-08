@@ -8,7 +8,7 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IServiceCollection AddMediator(this IServiceCollection services, params Assembly[] assemblies)
         {
             var dic = Helper.GetCommandHandlerDictionary(assemblies);
-            foreach (var item in dic) services.AddScoped(item.Value);
+            foreach (var item in dic) services.AddScoped(item.Value.Type);
             services.AddScoped<IDispatcher, Dispatcher>(provider => new Dispatcher(provider, dic));
             return services;
         }

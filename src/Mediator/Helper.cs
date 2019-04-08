@@ -5,9 +5,9 @@ using System.Reflection;
 
 namespace Mediator
 {
-    public static class Helper
+    internal static class Helper
     {
-        public static Dictionary<Type, Type> GetCommandHandlerDictionary(Assembly[] assemblies)
+        internal static Dictionary<Type, HandlerTypeInfo> GetCommandHandlerDictionary(Assembly[] assemblies)
         {
             var handerGUIDs = new[] {
                 typeof(IHandler<,>).GUID,
@@ -16,12 +16,21 @@ namespace Mediator
 
             if (assemblies.Count() == 0) assemblies = new[] { Assembly.GetEntryAssembly() };
 
-            return assemblies.SelectMany(s => s.GetTypes())
-               .Cast<TypeInfo>()
-               .Where(w => w.ImplementedInterfaces.Any(a => handerGUIDs.Contains(a.GUID)))
-               .ToDictionary(
-                t => t.ImplementedInterfaces.First(f => handerGUIDs.Contains(f.GUID)).GenericTypeArguments[0],
-                t => (Type)t);
+            var dic = new Dictionary<Type, HandlerTypeInfo>();
+
+            foreach (TypeInfo item in assemblies.SelectMany(s => s.GetTypes()))
+            {
+                var @interface = item.ImplementedInterfaces.FirstOrDefault(f => handerGUIDs.Contains(f.GUID));
+                if (@interface != null)
+                {
+                    var cmd = @interface.GenericTypeArguments[0];
+                    if (dic.TryGetValue(cmd, out _)) continue;
+                    var method = @interface.GetMethods()[0];
+                    dic.Add(cmd, new HandlerTypeInfo(item, method));
+                }
+            }
+
+            return dic;
         }
     }
 }

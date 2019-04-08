@@ -7,8 +7,8 @@ namespace Mediator
 {
     public class DispatchBuilder
     {
-        private Dictionary<Type, Type> _dic;
-        private IServiceProvider _serviceProvider;
+        private readonly Dictionary<Type, HandlerTypeInfo> _dic;
+        private readonly IServiceProvider _serviceProvider;
 
         public DispatchBuilder(params Assembly[] assemblies)
         {
