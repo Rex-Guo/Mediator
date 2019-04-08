@@ -12,7 +12,6 @@ namespace Mediator
 
         public DispatchBuilder(params Assembly[] assemblies)
         {
-            if (assemblies.Count() == 0) assemblies = new[] { Assembly.GetCallingAssembly() };
             _dic = Helper.GetCommandHandlerDictionary(assemblies);
             _serviceProvider = new HandlerServiceProvider();
         }

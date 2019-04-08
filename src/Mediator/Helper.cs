@@ -14,6 +14,8 @@ namespace Mediator
                 typeof(IHandler<>).GUID
             };
 
+            if (assemblies.Count() == 0) assemblies = new[] { Assembly.GetEntryAssembly() };
+
             return assemblies.SelectMany(s => s.GetTypes())
                .Cast<TypeInfo>()
                .Where(w => w.ImplementedInterfaces.Any(a => handerGUIDs.Contains(a.GUID)))

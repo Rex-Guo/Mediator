@@ -3,10 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Basic
+namespace AspNetCodeApi
 {
-    public class TestCommand : ICommand<string>
+    public class TestCommand : ICommand<IEnumerable<string>>
     {
-        public int Id { get; set; }
     }
 }

@@ -8,7 +8,8 @@ namespace Basic
         private static void Main(string[] args)
         {
             var dispatch = new DispatchBuilder().Build();
-            string result = dispatch.DispatchAsync(new TestCommand()).Result;
+            var cmd = new TestCommand();
+            string result = dispatch.DispatchAsync(cmd).Result;
             Console.WriteLine(result);
             Console.ReadKey();
         }
