@@ -39,7 +39,7 @@ internal class Program
 
 ```
 
-### 与DependencyInjection配合在ASP NET Core下使用
+### 与DependencyInjection配合在ASPNETCore下使用
 Startup.cs注册服务
 ```
 public void ConfigureServices(IServiceCollection services)
