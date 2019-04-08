@@ -7,7 +7,7 @@ Huanent.Mediator与[jbogard/MediatR](https://github.com/jbogard/MediatR)同为�
 * 更优的性能
 
 # 快速开始
-_新建测试类 TestCommand.cs TestHandler.cs_
+新建测试类 TestCommand.cs TestHandler.cs
 
 ```
 public class TestCommand : ICommand<string>
@@ -20,7 +20,7 @@ public class TestHandler : IHandler<TestCommand, string>
 {
     public Task<string> HandleAsync(TestCommand command, CancellationToken token)
     {
-        return Task.FromResult("hello world!");
+        return Task.FromResult($"command payload: {command.Id}");
     }
 }
 ```
@@ -32,7 +32,7 @@ internal class Program
     private static void Main(string[] args)
     {
         var dispatch = new DispatchBuilder().Build();
-        var cmd = new TestCommand();
+        var cmd = new TestCommand{Id=23};
         string result = dispatch.DispatchAsync(cmd).Result;
     }
 }

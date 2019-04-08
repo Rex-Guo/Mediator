@@ -11,7 +11,7 @@ namespace Basic
     {
         public Task<string> HandleAsync(TestCommand command, CancellationToken token)
         {
-            return Task.FromResult("hello world!");
+            return Task.FromResult($"command payload: {command.Id}");
         }
     }
 }
