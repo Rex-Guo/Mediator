@@ -25,7 +25,7 @@ public class TestHandler : IHandler<TestCommand, string>
 }
 ```
 ### 独立使用
-#### 安装nuget包 Huanent.Mediator
+_安装nuget包 Huanent.Mediator_
 Program.cs
 ```
 internal class Program
@@ -41,7 +41,7 @@ internal class Program
 ```
 
 ### 与DependencyInjection配合在ASPNETCore下使用
-#### 安装nuget包 Huanent.Mediator.DependencyInjection
+_安装nuget包 Huanent.Mediator.DependencyInjection_
 Startup.cs注册服务
 ```
 public void ConfigureServices(IServiceCollection services)
