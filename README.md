@@ -1,4 +1,4 @@
-# 简介
+## 简介
 
 Huanent.Mediator与[jbogard/MediatR](https://github.com/jbogard/MediatR)同为中介者模式的.net实现，Huanent.Mediator具有以下优势：
 
@@ -6,7 +6,7 @@ Huanent.Mediator与[jbogard/MediatR](https://github.com/jbogard/MediatR)同为�
 * 更加精简的代码与api
 * 更优的性能
 
-# 快速开始
+## 快速开始
 新建测试类 TestCommand.cs TestHandler.cs
 
 ```
@@ -25,6 +25,7 @@ public class TestHandler : IHandler<TestCommand, string>
 }
 ```
 ### 独立使用
+#### 安装nuget包 Huanent.Mediator
 Program.cs
 ```
 internal class Program
@@ -40,6 +41,7 @@ internal class Program
 ```
 
 ### 与DependencyInjection配合在ASPNETCore下使用
+#### 安装nuget包 Huanent.Mediator.DependencyInjection
 Startup.cs注册服务
 ```
 public void ConfigureServices(IServiceCollection services)
@@ -70,4 +72,4 @@ public class ValuesController : ControllerBase
 
 ```
 
-# 完整API详见[WIKI]()
+## 完整API详见[WIKI]()
