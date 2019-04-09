@@ -6,7 +6,8 @@ Huanent.Mediator与[jbogard/MediatR](https://github.com/jbogard/MediatR)同为�
 * 更加精简的代码与api
 * 更优的性能
 
-## 快速开始
+## 独立使用
+_安装nuget包 Huanent.Mediator_
 新建测试类 TestCommand.cs TestHandler.cs
 
 ```
@@ -24,8 +25,6 @@ public class TestHandler : IHandler<TestCommand, string>
     }
 }
 ```
-### 独立使用
-_安装nuget包 Huanent.Mediator_
 Program.cs
 ```
 internal class Program
@@ -40,8 +39,25 @@ internal class Program
 
 ```
 
-### 与DependencyInjection配合在ASPNETCore下使用
+## 与DependencyInjection配合在ASPNETCore下使用
 _安装nuget包 Huanent.Mediator.DependencyInjection_
+新建测试类 TestCommand.cs TestHandler.cs
+
+```
+public class TestCommand : ICommand<string>
+{
+    public int Id { get; set; }
+}
+```
+```
+public class TestHandler : IHandler<TestCommand, string>
+{
+    public Task<string> HandleAsync(TestCommand command, CancellationToken token)
+    {
+        return Task.FromResult($"command payload: {command.Id}");
+    }
+}
+```
 Startup.cs注册服务
 ```
 public void ConfigureServices(IServiceCollection services)
