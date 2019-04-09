@@ -8,6 +8,7 @@ Huanent.Mediator与[jbogard/MediatR](https://github.com/jbogard/MediatR)同为�
 
 ## 独立使用
 _安装nuget包 Huanent.Mediator_
+
 新建测试类 TestCommand.cs TestHandler.cs
 
 ```
@@ -41,6 +42,7 @@ internal class Program
 
 ## 与DependencyInjection配合在ASPNETCore下使用
 _安装nuget包 Huanent.Mediator.DependencyInjection_
+
 新建测试类 TestCommand.cs TestHandler.cs
 
 ```
