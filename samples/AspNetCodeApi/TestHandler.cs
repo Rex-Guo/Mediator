@@ -9,7 +9,7 @@ namespace AspNetCodeApi
 {
     public class TestHandler : IHandler<TestCommand, IEnumerable<string>>
     {
-        public async Task<IEnumerable<string>> HandleAsync(TestCommand command, CancellationToken token)
+        public async Task<IEnumerable<string>> HandleAsync(TestCommand command, CancellationToken token, IDispatcher dispatcher)
         {
             return await Task.FromResult(new string[] { "value1", "value2" });
         }

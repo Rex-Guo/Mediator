@@ -7,9 +7,12 @@ namespace Mediator
 {
     internal class HandlerServiceProvider : IServiceProvider
     {
+        private static readonly Type[] _types = new Type[0];
+        private static readonly object[] _objects = new object[0];
+
         public object GetService(Type serviceType)
         {
-            return Expression.Lambda(Expression.New(serviceType)).Compile().DynamicInvoke();
+            return serviceType.GetConstructor(_types).Invoke(_objects);
         }
     }
 }

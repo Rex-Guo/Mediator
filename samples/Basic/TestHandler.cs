@@ -9,7 +9,7 @@ namespace Basic
 {
     public class TestHandler : IHandler<TestCommand, string>
     {
-        public Task<string> HandleAsync(TestCommand command, CancellationToken token)
+        public Task<string> HandleAsync(TestCommand command, CancellationToken token, IDispatcher dispatcher)
         {
             return Task.FromResult($"command payload: {command.Id}");
         }

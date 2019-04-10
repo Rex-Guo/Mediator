@@ -11,6 +11,8 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <AssemblyName>Huanent.Mediator.DependencyInjection</AssemblyName>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Description>.net standard mediator mode implement with dependencyInjection</Description>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
