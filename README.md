@@ -5,7 +5,7 @@ Huanent.Mediator与[jbogard/MediatR](https://github.com/jbogard/MediatR)同为�
 * 更加精简的实现代码与api
 * 更优的性能
 
-下面表格是Huanent.Mediator与jbogard/MediatR同样的逻辑代码调用一百万次命令的耗时
+下面表格是Huanent.Mediator与jbogard/MediatR同样的逻辑代码调用一百万次命令的耗时(测试详情可见samples/PerformanceComparisonWithMediatR)
 
 |框架              |用时             |
 |------------------|----------------|
