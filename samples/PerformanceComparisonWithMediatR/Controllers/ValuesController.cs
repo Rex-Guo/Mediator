@@ -26,7 +26,7 @@ namespace PerformanceComparisonWithMediatR.Controllers
         public async Task<string> Mediator([FromQuery] TestCommand testCommand)
         {
             var sw = Stopwatch.StartNew();
-            for (int i = 0; i < 10000000; i++)
+            for (int i = 0; i < 1000000; i++)
             {
                 await _dispatcher.DispatchAsync(testCommand);
             }
@@ -38,7 +38,7 @@ namespace PerformanceComparisonWithMediatR.Controllers
         public async Task<string> MediatR([FromQuery] TestCommand testCommand)
         {
             var sw = Stopwatch.StartNew();
-            for (int i = 0; i < 10000000; i++)
+            for (int i = 0; i < 1000000; i++)
             {
                 await _mediator.Send(testCommand);
             }

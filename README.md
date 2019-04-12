@@ -2,9 +2,15 @@
 
 Huanent.Mediator与[jbogard/MediatR](https://github.com/jbogard/MediatR)同为中介者模式的.net实现，Huanent.Mediator具有以下优势：
 
-* 使用expression来替代反射
-* 更加精简的代码与api
+* 更加精简的实现代码与api
 * 更优的性能
+
+下面表格是Huanent.Mediator与jbogard/MediatR同样的逻辑代码调用一百万次命令的耗时
+
+|框架              |用时             |
+|------------------|----------------|
+| Huanent.Mediator| 00:00:02.8459768|
+|jbogard/MediatR   |00:00:05.2528246|
 
 ## 独立使用
 _安装nuget包 Huanent.Mediator_
@@ -20,7 +26,7 @@ public class TestCommand : ICommand<string>
 ```
 public class TestHandler : IHandler<TestCommand, string>
 {
-    public Task<string> HandleAsync(TestCommand command, CancellationToken token)
+    public Task<string> HandleAsync(TestCommand command, CancellationToken token, IDispatcher dispatcher)
     {
         return Task.FromResult($"command payload: {command.Id}");
     }
@@ -54,7 +60,7 @@ public class TestCommand : ICommand<string>
 ```
 public class TestHandler : IHandler<TestCommand, string>
 {
-    public Task<string> HandleAsync(TestCommand command, CancellationToken token)
+    public Task<string> HandleAsync(TestCommand command, CancellationToken token, IDispatcher dispatcher)
     {
         return Task.FromResult($"command payload: {command.Id}");
     }

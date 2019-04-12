@@ -24,6 +24,13 @@ namespace Mediator
             object handler = _serviceProvider.GetService(handlerType.Type);
 
             return (Task<TResult>)handlerType.Method.Invoke(handler, new object[] { command, token, this });
+
+            //var call = Expression.Call(
+            //    Expression.Constant(handler),
+            //    handlerType.Method,
+            //    Expression.Constant(command),
+            //    Expression.Constant(token),
+            //    Expression.Constant(this));
         }
 
         public Task DispatchAsync(ICommand command, CancellationToken token = default) => DispatchAsync(command, token);
